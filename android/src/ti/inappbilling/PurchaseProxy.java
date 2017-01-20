@@ -40,5 +40,10 @@ public class PurchaseProxy extends KrollProxy {
     @Kroll.method @Kroll.getProperty
     public String getSignature() { return purchase.getSignature(); }
 
+    @Kroll.method @Kroll.getProperty
+    public boolean isVerified() { return purchase.isVerified(); }
+    @Kroll.method @Kroll.getProperty
+    public String getOriginalJson() { return purchase.getOriginalJson(); }
+
     public Purchase getPurchase() { return purchase; }
 }

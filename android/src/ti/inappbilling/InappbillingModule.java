@@ -97,7 +97,15 @@ public class InappbillingModule extends KrollModule {
     public static final int PURCHASE_STATE_CANCELED = 1;
     @Kroll.constant
     public static final int PURCHASE_STATE_REFUNDED = 2;
-    
+
+    // Unimplemented purchase state constants (for iOS compatibility only)
+    @Kroll.constant
+    public static final int PURCHASE_STATE_PURCHASING = -1;
+    @Kroll.constant
+    public static final int PURCHASE_STATE_FAILED = -2;
+    @Kroll.constant
+    public static final int PURCHASE_STATE_RESTORED = -3;
+
     // Event name constants
     public static final String SETUP_COMPLETE = "setupcomplete";
     public static final String QUERY_INVENTORY_COMPLETE = "queryinventorycomplete";
@@ -159,7 +167,12 @@ public class InappbillingModule extends KrollModule {
             }
         });
     }
-    
+
+    @Kroll.method
+    public boolean isSetupDone() {
+        return mHelper != null && mHelper.isSetupDone();
+    }
+
     @Kroll.method
     public Boolean subscriptionsSupported() {
         checkSetupComplete();

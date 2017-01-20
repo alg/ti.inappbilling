@@ -496,9 +496,11 @@ public class IabHelper {
                 // Verify signature
                 if (!verified) {
                     logError("Purchase signature verification FAILED for sku " + sku);
-                } else {
-                    logDebug("Purchase signature successfully verified.");
+                    result = new IabResult(IABHELPER_VERIFICATION_FAILED, "Signature verification failed for sku " + sku);
+                    if (mPurchaseListener != null) mPurchaseListener.onIabPurchaseFinished(result, purchase);
+                    return true;
                 }
+                logDebug("Purchase signature successfully verified.");
             }
             catch (JSONException e) {
                 logError("Failed to parse purchase data.");

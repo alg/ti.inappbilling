@@ -39,11 +39,17 @@ public class PurchaseProxy extends KrollProxy {
     public String getToken() { return purchase.getToken(); }
     @Kroll.method @Kroll.getProperty
     public String getSignature() { return purchase.getSignature(); }
-
     @Kroll.method @Kroll.getProperty
     public boolean isVerified() { return purchase.isVerified(); }
     @Kroll.method @Kroll.getProperty
     public String getOriginalJson() { return purchase.getOriginalJson(); }
 
     public Purchase getPurchase() { return purchase; }
+    @Kroll.method @Kroll.getProperty
+    public KrollDict getReceipt() {
+        KrollDict receipt = new KrollDict();
+        receipt.put("data", purchase.getOriginalJson());
+        receipt.put("signature", purchase.getSignature());
+        return receipt;
+    }
 }

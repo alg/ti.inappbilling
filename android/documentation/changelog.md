@@ -1,5 +1,13 @@
 # Change Log
 <pre>
+v4.1.0  Expose `price_amount_micros` and `price_currency_code` to Inventory proxy 
+
+v4.0.1  Add External Validation helper
+
+v4.0.0  Update to compile against V8 5.1.281.59 and TiSDK 6.0.0+
+
+v3.0.2  Compiled module with latest SDK (platform 23) and NDK (r10e) [MOD-2154]
+
 v3.0.1  Open sourcing module [MOD-1730]
 
 v3.0.0  Updating to Google In-App Billing api v3 [MOD-1355]
